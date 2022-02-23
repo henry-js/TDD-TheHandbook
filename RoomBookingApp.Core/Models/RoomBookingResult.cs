@@ -1,8 +1,8 @@
 using System;
 
-namespace RoomBookingApp.Core;
+namespace RoomBookingApp.Core.Models;
 
-internal class RoomBookingRequest
+public class RoomBookingResult
 {
     public string FullName { get; set; }
     public string Email { get; set; }

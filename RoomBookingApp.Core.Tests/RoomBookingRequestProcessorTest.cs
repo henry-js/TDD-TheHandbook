@@ -1,7 +1,8 @@
 using System;
-using Xunit;
-using RoomBookingApp.Core;
+using RoomBookingApp.Core.Models;
+using RoomBookingApp.Core.Processors;
 using Shouldly;
+using Xunit;
 
 namespace RoomBookingApp.Core.Tests;
 

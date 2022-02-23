@@ -209,3 +209,6 @@ d:\repos\TDD-TheHandbook\RoomBookingApp.Core.Tests\obj\Debug\net6.0\RoomBookingA
 d:\repos\TDD-TheHandbook\RoomBookingApp.Core.Tests\obj\Debug\net6.0\refint\RoomBookingApp.Core.Tests.dll
 d:\repos\TDD-TheHandbook\RoomBookingApp.Core.Tests\obj\Debug\net6.0\RoomBookingApp.Core.Tests.genruntimeconfig.cache
 d:\repos\TDD-TheHandbook\RoomBookingApp.Core.Tests\obj\Debug\net6.0\ref\RoomBookingApp.Core.Tests.dll
+D:\repos\TDD-TheHandbook\RoomBookingApp.Core.Tests\bin\Debug\net6.0\CoverletSourceRootsMapping
+D:\repos\TDD-TheHandbook\RoomBookingApp.Core.Tests\bin\Debug\net6.0\RoomBookingApp.Core.dll
+D:\repos\TDD-TheHandbook\RoomBookingApp.Core.Tests\bin\Debug\net6.0\RoomBookingApp.Core.pdb

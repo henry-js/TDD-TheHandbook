@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "IqN5cVxNRw3zVzvPiCF7gAWTy9ldbM77xmlaHcg04K57Isz3OL0X/YZHvm5VsAotqKBS+Uxw94kZaCBMFNcgLw==",
+  "dgSpecHash": "wCpGpQZSuJC4p/x9YT9+nC+5qTkgOvg+SfqZjvqDW0c0lUDP5pH1pmqQj0ERs8DqzH9rLV73DdQcuSZSLhQbbg==",
   "success": true,
   "projectFilePath": "D:\\repos\\TDD-TheHandbook\\RoomBookingApp.Core.Tests\\RoomBookingApp.Core.Tests.csproj",
   "expectedPackageFiles": [

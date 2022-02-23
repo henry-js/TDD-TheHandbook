@@ -9,6 +9,7 @@
       "RoomBookingApp.Core.Tests/1.0.0": {
         "dependencies": {
           "Microsoft.NET.Test.Sdk": "16.11.0",
+          "RoomBookingApp.Core": "1.0.0",
           "coverlet.collector": "3.1.0",
           "Shouldly": "4.0.3",
           "xunit": "2.4.1",
@@ -1835,7 +1836,12 @@
           }
         }
       },
-      "xunit.runner.visualstudio/2.4.3": {}
+      "xunit.runner.visualstudio/2.4.3": {},
+      "RoomBookingApp.Core/1.0.0": {
+        "runtime": {
+          "RoomBookingApp.Core.dll": {}
+        }
+      }
     }
   },
   "libraries": {
@@ -2886,6 +2892,11 @@
       "sha512": "sha512-kZZSmOmKA8OBlAJaquPXnJJLM9RwQ27H7BMVqfMLUcTi9xHinWGJiWksa3D4NEtz0wZ/nxd2mogObvBgJKCRhQ==",
       "path": "xunit.runner.visualstudio/2.4.3",
       "hashPath": "xunit.runner.visualstudio.2.4.3.nupkg.sha512"
+    },
+    "RoomBookingApp.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }
