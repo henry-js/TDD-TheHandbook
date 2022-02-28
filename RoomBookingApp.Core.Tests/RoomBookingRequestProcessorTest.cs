@@ -33,7 +33,6 @@ public class RoomBookingRequestProcessorTest
     {
         // Arrange
 
-
         // Act
         RoomBookingResult result = _processor.BookRoom(_bookingRequest);
 
@@ -60,18 +59,37 @@ public class RoomBookingRequestProcessorTest
     public void Should_Save_Room_Booking_Request()
     {
         // Arrange
-        RoomBooking roomBooking = null;
+        RoomBooking savedBooking = null;
+        _roomBookingServiceMock.Setup(service => service.Save(It.IsAny<RoomBooking>()))
+            .Callback<RoomBooking>((booking) => savedBooking = booking);
+
         // Act
-        RoomBookingResult result = _processor.BookRoom(_bookingRequest);
-        _roomBookingServiceMock.Setup((service) => service.Save(It.IsAny<RoomBooking>()))
-            .Callback<RoomBooking>((booking) => roomBooking = booking);
+        _processor.BookRoom(_bookingRequest);
 
         // Assert
         _roomBookingServiceMock.Verify((service) => service.Save(It.IsAny<RoomBooking>()), Times.Once);
-        roomBooking.ShouldNotBeNull();
-        roomBooking.FullName.ShouldBe(_bookingRequest.FullName);
-        roomBooking.Email.ShouldBe(_bookingRequest.Email);
-        roomBooking.Date.ShouldBe(_bookingRequest.Date);
-
+        savedBooking.ShouldNotBeNull();
+        savedBooking.FullName.ShouldBe(_bookingRequest.FullName);
+        savedBooking.Email.ShouldBe(_bookingRequest.Email);
+        savedBooking.Date.ShouldBe(_bookingRequest.Date);
     }
+
+    public void Should_Not_Save_Room_Booking_Request_If_None_Available()
+    {
+        // Arrange
+        RoomBooking savedBooking = null;
+        _roomBookingServiceMock.Setup(service => service.Save(It.IsAny<RoomBooking>()))
+            .Callback<RoomBooking>((booking) => savedBooking = booking);
+
+        // Act
+        _processor.BookRoom(_bookingRequest);
+
+        // Assert
+        _roomBookingServiceMock.Verify((service) => service.Save(It.IsAny<RoomBooking>()), Times.Once);
+        savedBooking.ShouldNotBeNull();
+        savedBooking.FullName.ShouldBe(_bookingRequest.FullName);
+        savedBooking.Email.ShouldBe(_bookingRequest.Email);
+        savedBooking.Date.ShouldBe(_bookingRequest.Date);
+    }
+
 }

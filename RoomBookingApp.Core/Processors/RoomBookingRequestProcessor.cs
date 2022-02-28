@@ -35,5 +35,19 @@ public class RoomBookingRequestProcessor
             Email = bookingRequest.Email,
             Date = bookingRequest.Date
         };
+
+    }
+
+    private TRoomBooking CreateRoomBookingObject<TRoomBooking>(RoomBookingRequest bookingRequest)
+        where TRoomBooking : RoomBookingBase, new()
+    {
+        var roomBooking = new TRoomBooking
+        {
+            FullName = bookingRequest.FullName,
+            Email = bookingRequest.Email,
+            Date = bookingRequest.Date
+        };
+
+        return roomBooking;
     }
 }
