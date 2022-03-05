@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Moq;
 using RoomBookingApp.Core.DataServices;
-using RoomBookingApp.Core.Domain;
 using RoomBookingApp.Core.Enums;
 using RoomBookingApp.Core.Models;
 using RoomBookingApp.Core.Processors;
+using RoomBookingApp.Domain;
 using Shouldly;
 using Xunit;
 
@@ -108,13 +107,20 @@ public class RoomBookingRequestProcessorTest
     [Theory]
     [InlineData(1, true)]
     [InlineData(null, false)]
-    public void Should_Return_RoomBookingId_In_Result(int? roomBookingId, bool isAvailable)
+    public void BookRoom_Should_Return_RoomBookingId_In_Result(int? roomBookingId, bool isAvailable)
     {
+        // Act
         if (!isAvailable)
         {
             _availableRooms.Clear();
         }
+        else
+        {
+            _roomBookingServiceMock.Setup(service => service.Save(It.IsAny<RoomBooking>()))
+                .Callback<RoomBooking>((booking) => booking.Id = roomBookingId.Value);
+        }
 
+        // Assert
         var result = _processor.BookRoom(_bookingRequest);
         result.RoomBookingId.ShouldBe(roomBookingId);
     }

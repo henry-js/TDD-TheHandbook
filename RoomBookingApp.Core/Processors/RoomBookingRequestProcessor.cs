@@ -1,9 +1,8 @@
-using System;
-using Microsoft.VisualBasic;
 using RoomBookingApp.Core.DataServices;
-using RoomBookingApp.Core.Domain;
 using RoomBookingApp.Core.Enums;
 using RoomBookingApp.Core.Models;
+using RoomBookingApp.Domain;
+using RoomBookingApp.Domain.BaseModels;
 
 namespace RoomBookingApp.Core.Processors;
 
@@ -34,6 +33,7 @@ public class RoomBookingRequestProcessor
             roomBooking.RoomId = availableRoom.Id;
             _roomBookingService.Save(roomBooking);
 
+            result.RoomBookingId = roomBooking.Id;
             result.Flag = BookingResultFlag.Success;
         }
         else
