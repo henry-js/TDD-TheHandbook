@@ -9,9 +9,15 @@ public class RoomBookingAppDbContext : DbContext
     public RoomBookingAppDbContext(DbContextOptions<RoomBookingAppDbContext> options) : base(options)
     {
     }
+
+    public DbSet<Room> Rooms { get; set; }
+    public DbSet<RoomBooking> RoomBookings { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=RoomBookingApp;Trusted_Connection=True;");
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=RoomBookingAppDb;Trusted_Connection=True;");
+        }
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

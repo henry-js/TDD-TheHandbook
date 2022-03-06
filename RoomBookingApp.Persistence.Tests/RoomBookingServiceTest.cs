@@ -39,7 +39,28 @@ public class RoomBookingServiceTest
         // Assert
         availableRooms.Count().ShouldBe(2);
         availableRooms.ShouldContain(r => r.Id == 2);
-        availableRooms.ShouldContain(r => r.Id == 3);
-        availableRooms.ShouldNotContain(r => r.Id == 1);
+        availableRooms.ShouldContain(r => r.Id == 1);
+        availableRooms.ShouldNotContain(r => r.Id == 3);
+    }
+
+    [Fact]
+    public void Should_Save_Room_Booking()
+    {
+        var dbOptions = new DbContextOptionsBuilder<RoomBookingAppDbContext>()
+             .UseInMemoryDatabase(databaseName: "AvailableRoomTest")
+             .Options;
+
+        RoomBooking roomBooking = new() { RoomId = 1, Date = DateTime.Now };
+
+        using var context = new RoomBookingAppDbContext(dbOptions);
+        var roomBookingService = new RoomBookingService(context);
+        roomBookingService.Save(roomBooking);
+
+        var bookings = context.RoomBookings.ToList();
+
+        // Assert
+        var booking = bookings.ShouldHaveSingleItem();
+        roomBooking.Date.ShouldBe(booking.Date);
+        roomBooking.RoomId.ShouldBe(booking.RoomId);
     }
 }
