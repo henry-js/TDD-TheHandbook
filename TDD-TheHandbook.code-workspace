@@ -4,25 +4,25 @@
 			"path": "."
 		},
 		{
-			"path": "RoomBookingApp.Core.Tests"
-		},
-		{
-			"path": "RoomBookingApp.Core"
-		},
-		{
 			"path": "RoomBookingApp.Api"
 		},
 		{
 			"path": "RoomBookingApp.Api.Tests"
 		},
 		{
-			"path": "RoomBookingApp.Persistence.Tests"
+			"path": "RoomBookingApp.Core"
+		},
+		{
+			"path": "RoomBookingApp.Core.Tests"
 		},
 		{
 			"path": "RoomBookingApp.Domain"
 		},
 		{
 			"path": "RoomBookingApp.Persistence"
+		},
+		{
+			"path": "RoomBookingApp.Persistence.Tests"
 		}
 	],
 	"settings": {
